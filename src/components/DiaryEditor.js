@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
 import MyHeader from "./MyHeader";
@@ -37,7 +37,7 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
 
-const DiaryEditor = () => {
+const DiaryEditor = ({ isEdit, originData }) => {
   const navigate = useNavigate();
 
   const contentRef = useRef();
@@ -60,10 +60,18 @@ const DiaryEditor = () => {
     navigate("/", { replace: true });
   };
 
+  useEffect(() => {
+    if (isEdit) {
+      setDate(getStringDate(new Date(parseInt(originData.date))));
+      setEmotion(originData.emotion);
+      setContent(originData.content);
+    }
+  }, [isEdit, originData]);
+
   return (
     <div className="DiaryEditor">
       <MyHeader
-        headText={"새 일기 쓰기"}
+        headText={isEdit ? "일기 수정하기" : "새 일기 쓰기"}
         leftChild={<MyButton text={"뒤로 가기"} onClick={() => navigate(-1)} />}
       />
       <div>

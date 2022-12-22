@@ -170,9 +170,9 @@ header button {
     background-color: #fd565f;
 }
 
-/*.DiaryItem .emotion_img_wrapper img {*/
-/*    width: 50%;*/
-/*}*/
+.DiaryItem .emotion_img_wrapper img {
+    width: 50%;
+}
 
 .DiaryItem .info_wrapper {
     cursor: pointer;
@@ -218,4 +218,33 @@ header button {
     cursor: pointer;
     font-family: 'Noto Sans KR', serif;
     font-size: 16px;
+}
+
+.DiaryEditor .emotion_list_wrapper {
+    display: flex;
+    grid-template-columns: repeat(5, auto);
+    gap: 2%;
+}
+
+/*  EmotionItem  */
+
+.EmotionItem {
+    cursor: pointer;
+
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.EmotionItem img {
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.EmotionItem span {
+    font-size: 14px;
 }

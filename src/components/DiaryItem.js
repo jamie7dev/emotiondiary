@@ -10,7 +10,7 @@ const DiaryItem = ({ id, emotion, content, date }) => {
       <div
         className={[
           "emotion_img_wrapper",
-          `emotion_img_wrappaer_${emotion}`,
+          `emotion_img_wrapper_${emotion}`,
         ].join(" ")}
         onClick={() => {
           navigate(`/diary/${id}`);

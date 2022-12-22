@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyHeader from "./MyHeader";
 import MyButton from "./MyButton";
@@ -38,6 +38,9 @@ const getStringDate = (date) => {
 
 const DiaryEditor = () => {
   const navigate = useNavigate();
+
+  const contentRef = useRef();
+  const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
   const [date, setDate] = useState(getStringDate(new Date()));
 
@@ -53,7 +56,7 @@ const DiaryEditor = () => {
       />
       <div>
         <section>
-          <h4>오늘 날짜 선택</h4>
+          <h4>오늘의 날짜</h4>
           <p>날짜 선택 기능은 사파리에서 제공되지 않습니다.</p>
           <div className="input_box">
             <input
@@ -75,6 +78,17 @@ const DiaryEditor = () => {
                 isSelected={it.emotion_id === emotion}
               />
             ))}
+          </div>
+        </section>
+        <section>
+          <h4>오늘의 일기</h4>
+          <div className="input_box text_wrapper">
+            <textarea
+              ref={contentRef}
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="오늘은 어땠나요?"
+            />
           </div>
         </section>
       </div>

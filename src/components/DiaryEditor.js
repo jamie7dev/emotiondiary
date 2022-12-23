@@ -76,7 +76,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
       <div>
         <section>
           <h4>오늘의 날짜</h4>
-          <p>날짜 선택 기능은 사파리에서 제공되지 않습니다.</p>
+          <p>(사파리는 날짜 선택 기능이 제공되지 않습니다.)</p>
           <div className="input_box">
             <input
               className="input_date"

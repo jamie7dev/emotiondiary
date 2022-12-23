@@ -2,6 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DiaryStateContext } from "../App";
 
+import { getStringDate } from "../util/date";
+import MyHeader from "../components/MyHeader";
+import MyButton from "../components/MyButton";
+
 const Diary = () => {
   const { id } = useParams();
   const diaryList = useContext(DiaryStateContext);
@@ -27,9 +31,29 @@ const Diary = () => {
   if (!data) {
     return <div className="DiaryPage">로딩중입니다...</div>;
   } else {
-    return <div className="DiaryPage"></div>;
+    return (
+      <div className="DiaryPage">
+        <MyHeader
+          headText={`${getStringDate(new Date(data.date))} 기록`}
+          leftChild={
+            <MyButton
+              text={"< 뒤로 가기"}
+              onClick={() => {
+                navigate(-1);
+              }}
+            />
+          }
+          rightChild={
+            <MyButton
+              text={"수정하기"}
+              onClick={() => {
+                navigate(`/edit/${data.id}`);
+              }}
+            />
+          }
+        />
+      </div>
+    );
   }
-
-  return <div></div>;
 };
 export default Diary;

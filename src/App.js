@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Edit from "./pages/Edit";
-import Diary from "./pages/Diary";
+import Detail from "./pages/Detail";
 import New from "./pages/New";
 
 const reducer = (state, action) => {
@@ -98,7 +98,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/new" element={<New />} />
               <Route path="/edit/:id" element={<Edit />} />
-              <Route path="/diary/:id" element={<Diary />} />
+              <Route path="/diary/:id" element={<Detail />} />
             </Routes>
           </div>
         </BrowserRouter>

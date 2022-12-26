@@ -8,7 +8,7 @@ import MyButton from "../components/MyButton";
 import { getStringDate } from "../util/date";
 import { emotionList } from "../util/emotion";
 
-const Diary = () => {
+const Detail = () => {
   const { id } = useParams();
   const diaryList = useContext(DiaryStateContext);
   const navigate = useNavigate();
@@ -57,7 +57,6 @@ const Diary = () => {
           rightChild={
             <MyButton
               text={"수정하기"}
-              type={"negative"}
               onClick={() => {
                 navigate(`/edit/${data.id}`);
               }}
@@ -90,4 +89,4 @@ const Diary = () => {
     );
   }
 };
-export default Diary;
+export default Detail;
